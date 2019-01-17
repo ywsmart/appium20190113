@@ -27,4 +27,9 @@ public class MainPage extends BasePage {
         find(By.id("home_search")).click();
         return new SearchPage();
     }
+
+    public ZixuanPage gotoZixuan() {
+        find(text("自选")).click();
+        return new ZixuanPage();
+    }
 }

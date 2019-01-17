@@ -26,6 +26,7 @@ public class Driver {
         desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
         desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
         desiredCapabilities.setCapability("autoGrantPermissions", "true");
+        desiredCapabilities.setCapability("norest", "true");
 
         URL remoteUrl = null;
         try {
@@ -35,7 +36,7 @@ public class Driver {
         }
 
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
-        driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     public static AppiumDriver<AndroidElement> getCurrentDriver(){
         return driver;

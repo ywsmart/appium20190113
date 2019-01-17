@@ -42,7 +42,7 @@ public class SearchTest {
     }
 
     @Test
-    void 选择() {
+    public void 选择() {
         ArrayList<String> arrayList = searchPage.search("mi").addSelected();
         assertThat(arrayList, hasItems("com.xueqiu.android:id/followed_btn", "com.xueqiu.android:id/follow_btn"));
     }

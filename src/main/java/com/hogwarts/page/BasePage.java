@@ -3,6 +3,8 @@ package com.hogwarts.page;
 import com.hogwarts.driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Function：
@@ -13,9 +15,10 @@ import org.openqa.selenium.WebElement;
  */
 public class BasePage {
     static WebElement find(By locator){
+        WebDriverWait webDriverWait = new WebDriverWait(Driver.getCurrentDriver(),10);
         // 此处后面需要改循环
         try {
-            return Driver.getCurrentDriver().findElement(locator);
+            return webDriverWait.until(ExpectedConditions.elementToBeClickable(Driver.getCurrentDriver().findElement(locator)));
         }catch (Exception e){
             Driver.getCurrentDriver().findElement(text("下次再说")).click();
             return Driver.getCurrentDriver().findElement(locator);
