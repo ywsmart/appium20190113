@@ -2,10 +2,9 @@ package com.hogwarts;
 
 import com.hogwarts.page.MainPage;
 import com.hogwarts.page.SearchPage;
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.util.ArrayList;
 
@@ -31,19 +30,16 @@ public class SearchTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "pdd, 拼多多",
-            "alibaba, 阿里巴巴",
-            "sogo, 搜狗"
-    })
+    @CsvFileSource(resources="/data/SearchTest2.csv")
     void 搜索测试(String keyword, String name) {
         String content = searchPage.search(keyword).getAll().get(0);
         assertThat(content, equalTo(name));
     }
 
-    @Test
-    public void 选择() {
-        ArrayList<String> arrayList = searchPage.search("mi").addSelected();
+    @ParameterizedTest
+    @CsvFileSource(resources="/data/SearchTest.csv")
+    public void 选择(String keyword) {
+        ArrayList<String> arrayList = searchPage.search(keyword).addSelected();
         assertThat(arrayList, hasItems("com.xueqiu.android:id/followed_btn", "com.xueqiu.android:id/follow_btn"));
     }
 }

@@ -18,15 +18,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class Driver {
     private static AppiumDriver<AndroidElement> driver;
+
     public static void start() {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("platformName", "android");
-//        desiredCapabilities.setCapability("deviceName", "M960SDQE7TGEX");// meizu
-        desiredCapabilities.setCapability("deviceName", "b43052194793");// huawei
-        desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
-        desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
-        desiredCapabilities.setCapability("autoGrantPermissions", "true");
-        desiredCapabilities.setCapability("norest", "true");
+
+        GlobalConfig config = GlobalConfig.load("/data/globalConfig.yaml");
+        config.appium.capabilities.keySet().forEach(key -> {
+            Object value = config.appium.capabilities.get(key);
+            desiredCapabilities.setCapability(key, value);
+        });
 
         URL remoteUrl = null;
         try {
@@ -38,7 +38,8 @@ public class Driver {
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-    public static AppiumDriver<AndroidElement> getCurrentDriver(){
+
+    public static AppiumDriver<AndroidElement> getCurrentDriver() {
         return driver;
     }
 }
