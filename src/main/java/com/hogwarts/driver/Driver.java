@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Function：
+ * Function：driver类
  *
  * @author YangWang
  * @date 2019-01-13

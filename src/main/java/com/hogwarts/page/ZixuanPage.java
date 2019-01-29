@@ -8,7 +8,7 @@ import org.openqa.selenium.interactions.touch.TouchActions;
 import java.util.ArrayList;
 
 /**
- * Function：
+ * Function：自选页
  *
  * @author YangWang
  * @date 2019-01-18

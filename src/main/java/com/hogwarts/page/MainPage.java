@@ -4,7 +4,7 @@ import com.hogwarts.driver.Driver;
 import org.openqa.selenium.By;
 
 /**
- * Function：
+ * Function：主页
  *
  * @author YangWang
  * @date 2019-01-13

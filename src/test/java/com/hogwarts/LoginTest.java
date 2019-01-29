@@ -32,8 +32,6 @@ public class LoginTest {
             "15600534760, xxxxxxxx, 用户名或密码错误",
             "1560053476, xxxxxxxx, 手机号码填写错误"
     })
-
-    @Test
     void 密码登录(String username, String password, String expection) {
         LoginPage loginPage = profilePage.gotoLogin();
         loginPage.passwordFail(username, password);

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 
 /**
- * Function：
+ * Function：搜索页
  *
  * @author YangWang
  * @date 2019-01-13

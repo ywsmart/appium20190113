@@ -3,7 +3,7 @@ package com.hogwarts.page;
 import org.openqa.selenium.By;
 
 /**
- * Function：
+ * Function：登录页
  *
  * @author YangWang
  * @date 2019-01-13

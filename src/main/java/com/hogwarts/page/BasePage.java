@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * Function：
+ * Function：基页
  *
  * @author YangWang
  * @date 2019-01-13

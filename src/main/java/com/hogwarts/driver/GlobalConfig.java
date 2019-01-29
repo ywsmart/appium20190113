@@ -6,7 +6,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.io.IOException;
 
 /**
- * Function：
+ * Function：全局配置
  *
  * @author YangWang
  * @date 2019-01-20
@@ -16,7 +16,7 @@ public class GlobalConfig {
     public AppiumConfig appium;
     public XueqiuConfig xueqiu;
 
-    static GlobalConfig load(String path){
+    static GlobalConfig load(String path) {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         try {
             GlobalConfig config = mapper.readValue(GlobalConfig.class.getResource(path), GlobalConfig.class);
