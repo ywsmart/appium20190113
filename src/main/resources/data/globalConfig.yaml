@@ -5,7 +5,7 @@ xueqiu:
 appium:
   app: ""
   url: http://127.0.0.1:4723/wd/hub
-  wait: 6
+  wait: 10
   capabilities:
     platformName: android
     deviceName: M960SDQE7TGEX
@@ -13,3 +13,4 @@ appium:
     appActivity: .view.WelcomeActivityAlias
     autoGrantPermissions: true
     norest: true
+    unicodeKeyboard: true

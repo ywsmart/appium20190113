@@ -24,6 +24,7 @@ public class BasePage {
             return Driver.getCurrentDriver().findElement(locator);
         }
     }
+
     static By locate(String locator){
         if (locator.matches("/.*")){
             return By.xpath(locator);

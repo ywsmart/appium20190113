@@ -6,11 +6,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.ArrayList;
+
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItems;
 
 /**
- * Function：
+ * Function：自选测试
  *
  * @author YangWang
  * @date 2019-01-18
@@ -32,11 +34,11 @@ public class ZixuanTest {
             "alibaba, 阿里巴巴",
             "sogo, 搜狗"
     })
-    void 添加自选(String keyword, String name) {
-        String content = zixuanPage.addZixuan(keyword).getAll().get(0);
-        assertThat(content, equalTo(name));
+    void A添加自选A(String keyword, String name) {
+        zixuanPage.addZixuan(keyword);
+        ArrayList<String> arrayList = zixuanPage.cancel().getAll();
+        assertThat(arrayList, hasItems(name));
     }
-
 
     @ParameterizedTest
     @CsvSource({
@@ -44,8 +46,8 @@ public class ZixuanTest {
             "alibaba, 阿里巴巴",
             "sogo, 搜狗"
     })
-    void 删除自选(String name) {
-//        ArrayList<String> arrayList =  zixuanPage.delZixuan("").addSelected();
-//        assertThat(arrayList, hasItems("com.xueqiu.android:id/followed_btn", "com.xueqiu.android:id/follow_btn"));
+    void B删除自选B(String name) {
+        ArrayList<String> arrayList = zixuanPage.delZixuan(name).back().getAll();
+        assertThat(arrayList, hasItems(name));
     }
 }

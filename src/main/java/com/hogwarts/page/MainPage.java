@@ -29,7 +29,7 @@ public class MainPage extends BasePage {
     }
 
     public ZixuanPage gotoZixuan() {
-        find(text("自选")).click();
+        Driver.getCurrentDriver().findElements(By.id("tab_name")).get(1).click();
         return new ZixuanPage();
     }
 }

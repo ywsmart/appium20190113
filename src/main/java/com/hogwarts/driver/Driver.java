@@ -1,8 +1,10 @@
 package com.hogwarts.driver;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -17,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  * Created by YangWang on 2019-01-13 15:06.
  */
 public class Driver {
-    private static AppiumDriver<AndroidElement> driver;
+    private static AppiumDriver<WebElement> driver;
 
     public static void start() {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
@@ -39,7 +41,7 @@ public class Driver {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    public static AppiumDriver<AndroidElement> getCurrentDriver() {
+    public static AppiumDriver<WebElement> getCurrentDriver() {
         return driver;
     }
 }
